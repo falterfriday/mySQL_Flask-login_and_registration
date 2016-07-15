@@ -1,9 +1,22 @@
 .wrapper {
+	display: inline-block;
+	border: solid lightgray 1px;
 	height: auto;
+	width: auto;
+	border-radius: 6px;
 	margin: 10px 10px;
+	padding-bottom: 5px;
 }
 .top {
-	/*border: solid lightgray 1px;*/
+	background-color: lightgray;
+	border-radius: 5px 5px 0 0;
+	width: 500px;
+	padding: 10px;
+}
+hr {
+	width: 40%;
+}
+.bottom {
 	width: 50%;
 	border-radius: 5px;
 }
@@ -12,24 +25,21 @@ form {
 	text-align: right;
 }
 input {
-	width: 200px;
-	margin-top: 10px;
+	margin-bottom: 2px;
 }
 .error {
 	color: white;
 	display: inline-block;
 	background-color: #db524b;
-	width: 405px;
+	width: 500px;
 	text-align: center;
-	border-radius: 5px
-
 }
 .success {
 	color: white;
 	display: inline-block;
 	background-color: #58b958;
-	width: 405px;
-	border-radius: 5px;
+	width: 500px;
+	/*border-radius: 5px;*/
 	text-align: center;
 }
 .div {
@@ -43,4 +53,10 @@ input {
 }
 .addresses {
 	margin-left: 20px;
+}
+.submits {
+	margin-top: 10px;
+}
+.btn-primary.submits {
+	margin-left: 120px;
 }
