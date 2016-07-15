@@ -25,8 +25,18 @@ Description: Never Stop Learning
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+<!-- TOP -->
 <div class="wrapper">
 	<div class="top">
+	<form action="/login" method='POST'>
+		Email:<input type="email" name="login_email">
+		Password:<input type="password" name="login_password">
+		<input type="submit" name="login" value="login" class="btn btn-primary">
+	</form>	
+	</div>
+	<br>
+<!-- BOTTOM -->
+	<div class="bottom">
 	<form action='/process' method='POST'>
 		First Name: <input type="text" name="first_name"><br>
 		Last Name: <input type="text" name="last_name"><br>
@@ -34,10 +44,10 @@ Description: Never Stop Learning
 		Password: <input type="password" name="password"><br>
 		Password: <input type="password" name="password_conf"><br>
 	</div>	
-		<input class="btn btn-primary" type="submit" name="submit" value="submit">
+		<input class="btn btn-primary submits" type="submit" name="submit" value="submit">
 	</form>
 	<form action="clear">
-		<input type="submit" name="clear" value="reset" class="btn btn-danger" type="button">
+		<input type="submit" name="clear" value="reset" class="btn btn-danger submits" type="button">
 	</form>
 	{% with messages = get_flashed_messages() %}
 		{% if messages %}
