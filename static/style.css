@@ -1,0 +1,46 @@
+.wrapper {
+	height: auto;
+	margin: 10px 10px;
+}
+.top {
+	/*border: solid lightgray 1px;*/
+	width: 50%;
+	border-radius: 5px;
+}
+form {
+	display: inline-block;
+	text-align: right;
+}
+input {
+	width: 200px;
+	margin-top: 10px;
+}
+.error {
+	color: white;
+	display: inline-block;
+	background-color: #db524b;
+	width: 405px;
+	text-align: center;
+	border-radius: 5px
+
+}
+.success {
+	color: white;
+	display: inline-block;
+	background-color: #58b958;
+	width: 405px;
+	border-radius: 5px;
+	text-align: center;
+}
+.div {
+	background-color: lightgray;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 10px;
+	display: inline-block;
+	width: auto;
+}
+.addresses {
+	margin-left: 20px;
+}
