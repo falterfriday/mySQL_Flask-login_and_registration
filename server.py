@@ -17,22 +17,16 @@ def index():
 
 @app.route('/process', methods=['POST'])
 def submit():
-
 	if len(request.form['first_name']) < 2 or len(request.form['last_name']) < 2:
 		flash('<div class="error">name required</div>')
-
 	elif not (request.form['first_name']).isalpha() or not (request.form['last_name']).isalpha() :
 		flash('<div class="error">name is not valid!</div>')
-
 	elif not EMAIL_REGEX.match(request.form['email']):
 		flash('<div class="error">email is not valid!</div>')
-	
 	elif len(request.form['password']) < 8:
 		flash('<div class="error">password too short</div>')
-
 	elif request.form['password'] != request.form['password_conf']:
 		flash('<div class="error">passwords do not match</div>')
-
 	else:
 		flash('<div class="success">successful registration!</div>')
 		password = request.form['password']
@@ -46,6 +40,23 @@ def submit():
 		}
 		mysql.query_db(query, data)
 		session['display'] = True
+	return redirect('/')
+
+@app.route('/login', methods=['POST'])
+def login():
+	email = request.form['login_email']
+	password = request.form['login_password']
+	user_query = "SELECT * FROM users WHERE email = :email LIMIT 1"
+	query_data = { 'email': email }
+	user = mysql.query_db(user_query, query_data)
+	print query_data
+	print user
+	if len(user) < 1:
+		flash('<div class="error">invalid credentials</div>')
+	elif bcrypt.check_password_hash(user[0]['pw_hash'], password):
+		flash('<div class="success">login successful</div>')
+	else:
+		flash('<div class="error">invalid credentials</div>')
 	return redirect('/')
 
 @app.route('/clear')
